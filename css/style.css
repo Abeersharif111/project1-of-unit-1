@@ -16,7 +16,8 @@
   margin: 0;
   font-size: 16px;
   min-height: 100vh;
-  background-image: url(./assets/garden.png);
+  background-image: url("../assets/garden.png");
+  background-size: cover;
   font-family: system-ui, sans-serif;
   
 }
@@ -54,16 +55,18 @@ p:nth-of-type(2){
     position: relative;
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-top: -10px;
+    gap: 14px;
+    margin-top: -50px;
     z-index: 2;
+    left: 65px;
+    top: -19px;
 
 }
 
 .circle {
 
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     background-color: gray;
     border: 3px solid black;
@@ -83,9 +86,25 @@ p:nth-of-type(2){
 }
 
 
-/* to hide the paly again button during the game */
+/* to hide the paly button again button during the game */
 .hidden {
   visibility: hidden;
 }
+
+
+
+
+/* you loose msg */
+ #message1{
+ 
+background-color:darkorange;
+display: inline ;
+padding: 10px;
+border-radius:10px ;
+}
+
+
+
+
 
 
