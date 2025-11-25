@@ -34,6 +34,10 @@ const c3Id = document.querySelector('#c3')
 //console.log(c3Id)
 
 
+/* 
+document.getElementById('backGroundID').style.backgroundImage = 'url(' + 'C:/Users/Asus/code/ga/projects/projectone/assets/garden.png' + ')';
+*/
+
 /*-------------------------------- Functions --------------------------------*/
 
 
@@ -41,7 +45,8 @@ function initTheGame(){
     starButton1.classList.remove('hidden')
     restartButton.classList.add('hidden')
 
-    //gameOver = false
+    gameOver = false
+    timeLeft= 10
     timerEl.textContent= timeLeft
     time = setInterval( ()=> { timeCount() }, 1000)
     changecolor()
@@ -82,10 +87,10 @@ function timeCount()
 
     if ( timeLeft === 0)
         { 
-        clearInterval(timeLeft)
+        clearInterval(time)
         
         }
-    else
+    else if (gameOver == false)
         {
         timeLeft --
         timerEl.textContent= timeLeft
@@ -115,38 +120,42 @@ function timeCount()
 
 
 function render(){
-    if (gameOver === true) { 
      
-        if (score>=30) { 
+        if (gameOver === true && score >= 30) { 
             console.log("SCORE IS > 30 you win")
             
             //restartButton.classList.remove('hidden')
             //console.log(restarButton)
             gameMessageEl3.classList.remove('hidden')  // works
             //gameMessageEl3.innerHTML='you lost'
-        } else { 
-            if (score < 30){
-                //console.log('SCORE LESS THAN 30 AND GAME IS OVER')
-                gameMessageEl1.classList.remove('hidden')
+            
+        } else{  
+            
+                console.log('SCORE LESS THAN 30 AND GAME IS OVER')
+               return gameMessageEl1.classList.remove('hidden')
+            
             }
         
             //restartButton.classList.remove('hidden')
             console.log(score)
             //gameMessageEl1.innerHTML='you lost'
+            
         }       
+     
+    
 
-    }
-}
 
 
 function checkGameOver()
+
 {     // What condition do i need to determine if the game is over? 
-    if (timeLeft === 0){
+
+    if (timeLeft === 0 && gameOver == false){
       clearInterval(timeLeft)
        gameOver = true 
-    //console.log('gameover')
+        console.log('gameover')
     
-     //render()
+     render()
      restartButton.classList.remove('hidden')
     }
 }
@@ -164,6 +173,19 @@ function circleClicked()
 
 }
 
+function playAgain(){
+    time =0
+    // timeLeft= 10
+    
+    score= 0
+    scoreEl.textContent=score
+    c1Id.style.backgroundColor= 'gray'
+    c2Id.style.backgroundColor= 'gray'
+    c3Id.style.backgroundColor= 'gray'
+    gameMessageEl1.classList.add('hidden')
+    gameMessageEl3.classList.add('hidden')
+    // initTheGame()
+}
 
 /*----------------------------- Event Listeners -----------------------------*/
 
@@ -174,7 +196,7 @@ c2Id.addEventListener('click',circleClicked)
 c3Id.addEventListener('click',circleClicked)
 
 starButton1.addEventListener('click',initTheGame)
-restartButton.addEventListener('click',initTheGame)
+restartButton.addEventListener('click',playAgain)
 
 //initTheGame()
 

@@ -1,27 +1,53 @@
 /* make the game background to be full screen */
-.gameBackGroud
+.gameBackGround
 { 
     width: 750px;
     margin: 20px auto;
-    padding: 25px;
+    padding: 40px 30px 80px 30px;
     border-radius: 20px;
-    background: url ('./assets.garden.png') ;
+    background: rgb(255,255,255,0.2);
     border : 3px solid #999;
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
     position: relative;
-    z-index: 1; /* to determine in wich layer this element is */
+    /*z-index: 1; /* to determine in wich layer this element is */
 }
 
  body {
+  margin: 0;
   font-size: 16px;
   min-height: 100vh;
-  background-color: url(./assets.garden.png);
+  background-image: url(./assets/garden.png);
   font-family: system-ui, sans-serif;
+  
 }
 
 h1 {
+   text-align: center; 
   font-size: 3.5rem;
-  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* timer to be top right*/
+p:nth-of-type(1){
+   position: absolute;
+   top: 10px;
+   right: 20px;
+   font-size: 1.2rem;
+   font-weight: bold;
+   margin: 0;
+
+}
+
+/* score to be under the timer */
+p:nth-of-type(2){
+   position: absolute;
+   top: 45px;
+   right: 20px;
+   font-size: 1.2rem;
+   font-weight: bold;
+   margin: 0;
+
 }
 
 .circleArea{ 
@@ -29,7 +55,7 @@ h1 {
     display: flex;
     justify-content: center;
     gap: 30px;
-    margin-top: 25px;
+    margin-top: -10px;
     z-index: 2;
 
 }
@@ -44,13 +70,22 @@ h1 {
     cursor: pointer;
     transition: 0.2s;  
 }
-.startButton
+#startButton
 {
-    display: flex;
-    justify-content: right;
+    display: block;
+    /*justify-content: right;*/
+    margin: 40px auto 0 auto;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+
 }
+
 
 /* to hide the paly again button during the game */
 .hidden {
   visibility: hidden;
 }
+
+
