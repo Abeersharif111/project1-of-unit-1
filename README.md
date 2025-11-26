@@ -1,6 +1,6 @@
 # Project 1
 ## Screenshot/Logo :
-![alt text](./assets/garden.png)
+![alt text](./assets/final%20game%20layout.png)
 
 ## Your game's name:
 Lollypop Hunter Game . 
